@@ -5,15 +5,26 @@ mean(x)
 median(x)
 
 # calculate mode, no in-built R function for it
-# credit: tutorialspoint (https://www.tutorialspoint.com/r/r_mean_median_mode.htm#:~:text=R%20does%20not%20have%20a,the%20mode%20value%20as%20output.)
+# credit: https://www.statology.org/mode-in-r/
 # Create the function.
-getmode <- function(v) {
-   uniqv <- unique(v)
-   uniqv[which.max(tabulate(match(v, uniqv)))]
+find_mode <- function(x) {
+  u <- unique(x)
+  tab <- tabulate(match(x, u))
+  u[tab == max(tab)]
 }
 # Create the vector with numbers.
 v <- c(2,1,2,3,1,2,3,4,1,5,5,3,2,3)
-getmode(v)
+find_mode(v)
+v <- c(15,18,18,18,20,22,24,24,24,26,26)
+find_mode(v)
+
+# variance
+v <- c(16,19,15,15,14)
+var(v)
+sd(v)
+
+# coefficient of variantion
+sd(v)/mean(v) * 100
 
 #### Percentile
 A <- c(2,3,5,6,8,10,12,15,18,20)
