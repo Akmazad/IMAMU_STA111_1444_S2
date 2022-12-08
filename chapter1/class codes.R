@@ -11,6 +11,12 @@ find_mode <- function(x) {
   u <- unique(x)
   tab <- tabulate(match(x, u))
   u[tab == max(tab)]
+  temp <- u[tab == max(tab)]
+  # if all the unique elements have the same frequency, the no mode
+  if(length(temp) == length(u)) 
+    return(NULL)
+  else
+    return(temp)
 }
 # Create the vector with numbers.
 v <- c(2,1,2,3,1,2,3,4,1,5,5,3,2,3)
