@@ -46,3 +46,12 @@ A <- c(2,3,5,6,8,10,12,15,18,20,25)
 IQR(B)
 # check if IQR = Q3-Q1
 quantile(B, 0.75) - quantile(B, 0.25)
+
+# simple linear regression
+## house Price VS house size relationship exploitation - 
+dat <- data.frame(
+  housePrice = c(245,312,279,308,199,219,405,324,319,255),
+  sqFeet = c(1400,1600,1700,1875,1100,1550,2350,2450,1425,1700)
+)
+temp = lm(housePrice ~ sqFeet, data = dat)
+summary(temp)
